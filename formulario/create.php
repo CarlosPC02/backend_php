@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
     $sql = "INSERT INTO `formulario` (`formularioNombre`, `formularioUrl`, `formularioFecha`) VALUES ('$formularioNombre', '$formularioUrl', '$formularioFecha')";
     if(mysqli_query($con,$sql)){
 
-        $student= [
+        $formulario= [
             'formularioNombre' => $formularioNombre,
             'formularioUrl' => $formularioUrl,                                          
             'formularioFecha' => $formularioFecha,                                                                                                  

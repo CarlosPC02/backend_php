@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
     $sql = "UPDATE `formulario` SET `formularioNombre`='$formularioNombre',`formularioUrl`='$formularioUrl',`formularioFecha`='$formularioFecha' WHERE `formularioId`='$formularioId'";
     if(mysqli_query($con,$sql)){
 
-        $student= [
+        $formulario= [
             'formularioNombre' => $formularioNombre,
             'formularioUrl' => $formularioUrl,                                          
             'formularioFecha' => $formularioFecha,                                                                                                  

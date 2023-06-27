@@ -15,10 +15,17 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
+$postdata = file_get_contents("php://input");
+
 //check post request
-if($_SERVER['REQUEST_METHOD']=="POST") {                                
+if(isset($postdata) && !empty($postdata)) {                                
     
-    $sql = "DELETE FROM `formulario` WHERE `formularioId`=".$_GET['formularioId'];
+    //Extraer datos
+    $request= json_decode($postdata);
+    //
+    $formularioId = mysqli_real_escape_string($con, (int)$request->formularioId);
+
+    $sql = "DELETE FROM `formulario` WHERE `formularioId`='$formularioId' ";
     if(mysqli_query($con,$sql)){        
         echo json_encode(array("status" => "success"));
     } else {
