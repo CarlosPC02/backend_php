@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 function conexion() {
-    $conexion = mysqli_connect("localhost", "root", "","backend");
+    $conexion = mysqli_connect("cljhn54wc00u1nqd6op38ufrt", "RafoPC", "ConejoGatoPerro2023","Backend");
     return $conexion;
 }
 
